@@ -4,8 +4,8 @@
 {% block content %}
     <h2>{{ object.nombre }}</h2>
     <ul>
-        <li>{{ object.id }}</li>
-        <li>{{ object.calorias }}</li>
+        <li>Id: {{ object.id }}</li>
+        <li>Calorias: {{ object.calorias }}</li>
     </ul>
     <h2>Recetas asociadas</h2>
     {% for receta in object.receta_set.all %}
