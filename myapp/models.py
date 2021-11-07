@@ -20,20 +20,13 @@ class Receta(models.Model):
     descripcion = models.CharField(max_length=1000)
     tiempo = models.IntegerField(default = 0)
     tipo = models.CharField(
-        choices=[(tag, tag.value) for tag in TipoReceta],
+        choices=[(tag.name, tag.value) for tag in TipoReceta],
         max_length = 50
     )
     duracion = models.CharField(
-        choices=[(tag, tag.value) for tag in DuracionReceta],
+        choices=[(tag.name, tag.value) for tag in DuracionReceta],
         max_length = 50
     )
-    def __str__(self):
-        return self.nombre
-
-class Cantidad(models.Model):
-    cantidad = models.IntegerField(default=0)
-    unidad = models.CharField(max_length=40)
-    receta = models.ForeignKey(Receta, on_delete=models.CASCADE)
     def __str__(self):
         return self.nombre
 
@@ -41,9 +34,17 @@ class Cantidad(models.Model):
 class Ingrediente(models.Model):
     nombre = models.CharField(max_length=20)
     calorias = models.IntegerField(default = 0)
-    receta = models.ForeignKey(Receta, on_delete=models.CASCADE)
-    cantidad = models.ForeignKey(Cantidad, on_delete=models.CASCADE)
     def __str__(self):
         return self.nombre
+
+class Cantidad(models.Model):
+    cantidad = models.IntegerField(default=0)
+    unidad = models.CharField(max_length=40)
+    receta = models.ForeignKey(Receta, on_delete=models.CASCADE, default = None)
+    ingrediente = models.ForeignKey(Ingrediente, on_delete=models.CASCADE, default = None)
+    def __str__(self):
+        return self.unidad
+
+
 
 
