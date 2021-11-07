@@ -28,6 +28,12 @@ class Receta(models.Model):
     def __str__(self):
         return self.nombre
 
+class Cantidad(models.Model):
+    cantidad = models.IntegerField(default=0)
+    unidad = models.CharField(max_length=40)
+    receta = models.ForeignKey(Receta, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.nombre
 
 # Creacion de la clase Ingrediente
 class Ingrediente(models.Model):
@@ -38,9 +44,4 @@ class Ingrediente(models.Model):
     def __str__(self):
         return self.nombre
 
-class Cantidad(models.Model):
-    cantidad = models.IntegerField(default=0)
-    unidad = models.CharField(max_length=40)
-    receta = models.ForeignKey(Receta, on_delete=models.CASCADE)
-    def __str__(self):
-        return self.nombre
+
