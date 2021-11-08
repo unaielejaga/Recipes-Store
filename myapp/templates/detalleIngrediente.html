@@ -9,6 +9,6 @@
     </ul>
     <h2>Recetas asociadas</h2>
     {% for receta in object.cantidad_set.all %}
-        <li>{{ receta.receta.nombre }}</li>
+        <li><a href="{%url 'id_re' receta.receta.id%}">{{ receta.receta.nombre }}</a></li>
     {% endfor %}
 {% endblock %}

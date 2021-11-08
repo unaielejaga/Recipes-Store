@@ -4,7 +4,7 @@
 {% block content %}
 <ul>
 {% for receta in object_list %}
-    <li><a href="{%url 'id' receta.id%}">{{ receta.nombre }}</a></li>
+    <li><a href="{%url 'id_re' receta.id%}">{{ receta.nombre }}</a></li>
 {% endfor %}
 </ul>
 {% endblock %}

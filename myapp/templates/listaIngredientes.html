@@ -4,7 +4,7 @@
 {% block content %}
 <ul>
 {% for ingrediente in object_list %}
-    <li><a href="{%url 'id' ingrediente.id%}">{{ ingrediente.nombre }}</a></li>
+    <li><a href="{%url 'id_ing' ingrediente.id%}">{{ ingrediente.nombre }}</a></li>
 {% endfor %}
 </ul>
 {% endblock %}
