@@ -1,5 +1,5 @@
 from django.shortcuts import get_list_or_404, get_object_or_404, render
-from .models import Receta, Ingrediente, Cantidad
+from .models import Receta, Ingrediente, Cantidad, TipoReceta
 from django.http import HttpResponse
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -18,9 +18,13 @@ class IngredientesDetailView(DetailView):
     template_name = 'detalleIngrediente.html'
     
 class TiposListView(ListView):
-    model = Receta
- #   querySet = Receta.field.all()
-    template_name = 'portada.html'
+    model = TipoReceta
+    querySet = TipoReceta.objects.all()
+    template_name = 'listaTipos.html'
+    
+class TiposDetailView(DetailView):
+    model = TipoReceta
+    template_name = 'detalleTipos.html'
 
 class RecetasListView(ListView):
     model = Receta
