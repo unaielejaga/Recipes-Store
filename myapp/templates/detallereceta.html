@@ -6,12 +6,12 @@
     <ul>
         <li>Id: {{ object.id }}</li>
         <li>Descripción: {{ object.descripcion }}</li>
-        <li>Tipo: {{ object.tipo.name }}</li>
-        <li>Duración: {{ object.duracion.name }}</li>
+        <li>Tipo: {{ object.tipo }}</li>
+        <li>Duración: {{ object.duracion }}</li>
         <li>Tiempo: {{ object.tiempo }}</li>
     </ul>
     <h2>Ingredientes</h2>
     {% for cantidad in object.cantidad_set.all %}
-        <li>{{ cantidad.ingrediente.nombre }} : {{ cantidad.cantidad }} unds</li>
+        <li><a href="{%url 'id_ing' cantidad.ingrediente.id%}">{{ cantidad.ingrediente.nombre }}</a> : {{ cantidad.cantidad }} {{ cantidad.unidad }}</li>
     {% endfor %}
 {% endblock %}
