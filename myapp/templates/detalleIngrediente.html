@@ -8,7 +8,7 @@
         <li>Calorias: {{ object.calorias }}</li>
     </ul>
     <h2>Recetas asociadas</h2>
-    {% for receta in object.receta_set.all %}
-        <li>{{ receta.nombre }}</li>
+    {% for receta in object.cantidad_set.all %}
+        <li>{{ receta.receta.nombre }}</li>
     {% endfor %}
 {% endblock %}
