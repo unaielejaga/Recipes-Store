@@ -1,44 +1,33 @@
 from django.db import models
-from enum import Enum
 
-class TipoReceta(Enum):
-    D = "Desayuno"
-    A = "Aperitivo"
-    CO = "Comida"
-    M = "Merienda"
-    CE = "Cena"
+class TipoReceta(models.Model):
+    tipo = models.CharField(max_length=50)
+    def __str__(self):
+        return self.tipo
 
-class DuracionReceta(Enum):
-    MR = "Muy rapido"
-    R = "Rapido"
-    M = "Medio"
-    L = "Lento"
-    ML = "Muy lento"
+class DuracionReceta(models.Model):
+    duracion = models.CharField(max_length=50)
+    def __str__(self):
+        return self.duracion
 
 class Receta(models.Model):
     nombre = models.CharField(max_length=50)
-    descripcion = models.CharField(max_length=1000)
+    descripcion = models.CharField(max_length=10000)
     tiempo = models.IntegerField(default = 0)
-    tipo = models.CharField(
-        choices=[(tag.name, tag.value) for tag in TipoReceta],
-        max_length = 50
-    )
-    duracion = models.CharField(
-        choices=[(tag.name, tag.value) for tag in DuracionReceta],
-        max_length = 50
-    )
+    tipo = models.ForeignKey(TipoReceta, on_delete=models.CASCADE, default=None)
+    duracion = models.ForeignKey(DuracionReceta, on_delete=models.CASCADE, default=None)
     def __str__(self):
         return self.nombre
 
 # Creacion de la clase Ingrediente
 class Ingrediente(models.Model):
-    nombre = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=100)
     calorias = models.IntegerField(default = 0)
     def __str__(self):
         return self.nombre
 
 class Cantidad(models.Model):
-    cantidad = models.IntegerField(default=0)
+    cantidad = models.FloatField(default=0)
     unidad = models.CharField(max_length=40)
     receta = models.ForeignKey(Receta, on_delete=models.CASCADE, default = None)
     ingrediente = models.ForeignKey(Ingrediente, on_delete=models.CASCADE, default = None)
