@@ -5,7 +5,7 @@
     <h2>{{ object.nombre }}</h2>
     <ul>
         <li>Id: {{ object.id }}</li>
-        <li>Calorias: {{ object.calorias }}</li>
+        <li>Calorias: {{ object.calorias }} Kcal</li>
     </ul>
     <h2>Recetas asociadas</h2>
     {% for receta in object.cantidad_set.all %}
