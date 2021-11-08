@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Listado de tipos{% endblock %}
+{% block h1 %}Listado de tipos{% endblock %}
+{% block content %}
+<ul>
+    {% for tipo in Receta %}
+    {% for tag in choices %}
+    <li>{{tag.value}}</li>
+    {% endfor %}
+    {% endfor %}
+</ul>
+{% endblock %}
