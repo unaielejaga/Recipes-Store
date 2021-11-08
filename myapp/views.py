@@ -16,3 +16,8 @@ class IngredientesListView(ListView):
 class IngredientesDetailView(DetailView):
     model = Ingrediente
     template_name = 'detalleIngrediente.html'
+    
+class TiposListView(ListView):
+    model = Receta
+ #   querySet = Receta.field.all()
+    template_name = 'portada.html'
