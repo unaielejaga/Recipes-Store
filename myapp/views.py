@@ -21,3 +21,12 @@ class TiposListView(ListView):
     model = Receta
  #   querySet = Receta.field.all()
     template_name = 'portada.html'
+
+class RecetasListView(ListView):
+    model = Receta
+    querySet = Receta.objects.all()
+    template_name = 'listarecetas.html'
+
+class RecetasDetailView(DetailView):
+    model = Receta
+    template_name = 'detallereceta.html'

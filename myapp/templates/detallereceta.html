@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Detalle Receta{% endblock %}
+{% block h1 %}Detalle Receta{% endblock %}
+{% block content %}
+    <h2>{{ object.nombre }}</h2>
+    <ul>
+        <li>Id: {{ object.id }}</li>
+        <li>Descripción: {{ object.descripcion }}</li>
+        <li>Tipo: {{ object.tipo.name }}</li>
+        <li>Duración: {{ object.duracion.name }}</li>
+        <li>Tiempo: {{ object.tiempo }}</li>
+    </ul>
+    <h2>Ingredientes</h2>
+    {% for cantidad in object.cantidad_set.all %}
+        <li>{{ cantidad.ingrediente.nombre }} : {{ cantidad.cantidad }} unds</li>
+    {% endfor %}
+{% endblock %}

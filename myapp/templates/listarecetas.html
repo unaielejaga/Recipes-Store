@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Listado de Recetas{% endblock %}
+{% block h1 %}Listado de Recetas{% endblock %}
+{% block content %}
+<ul>
+{% for receta in object_list %}
+    <li><a href="{%url 'id' receta.id%}">{{ receta.nombre }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
