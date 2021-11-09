@@ -1,6 +1,14 @@
 {% extends "index.html" %}
+{% load static %}
+
 {% block title %}Listado de Recetas{% endblock %}
 {% block h1 %}Listado de Recetas{% endblock %}
+
+
+{% block imagen %}
+    <img src="{% static 'images/bullet.png' %}" alt="Landing Page" class="center">
+{% endblock %}
+
 {% block content %}
 <ul>
 {% for receta in object_list %}
