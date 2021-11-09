@@ -4,7 +4,7 @@
 {% block content %}
     <h2>{{ object.tipo }}</h2>
     <h2>Recetas asociadas</h2>
-    {% for receta in object.tipo_set.all %}
-        <li><a href="{%url 'id_re' receta.receta.id%}">{{ receta.receta.nombre }}</a></li>
+    {% for receta in object.receta_set.all %}
+        <li><a href="{%url 'id_re' receta.id%}">{{ receta.nombre }}</a></li>
     {% endfor %}
 {% endblock %}
