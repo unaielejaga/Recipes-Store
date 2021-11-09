@@ -4,7 +4,7 @@
 {% block content %}
     <h2>{{ object.nombre }}</h2>
     <ul>
-        <li>Calorias: {{ object.calorias }} Kcal</li>
+        <li>Calorias: {{ object.calorias }} Kcal/100g</li>
     </ul>
     <h2>Recetas asociadas</h2>
     {% for receta in object.cantidad_set.all %}

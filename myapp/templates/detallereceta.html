@@ -3,14 +3,14 @@
 {% block h1 %}Detalle Receta{% endblock %}
 {% block content %}
     <h2>{{ object.nombre }}</h2>
-    <ul>
-        <li>Descripción: {{ object.descripcion }}</li>
-        <li>Tipo: {{ object.tipo.tipo }}</li>
-        <li>Duración: {{ object.duracion.duracion}}</li>
-        <li>Tiempo: {{ object.tiempo }} min</li>
-    </ul>
     <h2>Ingredientes</h2>
     {% for cantidad in object.cantidad_set.all %}
         <li><a href="{%url 'id_ing' cantidad.ingrediente.id%}">{{ cantidad.ingrediente.nombre }}</a> : {{ cantidad.cantidad }} {{ cantidad.unidad }}</li>
     {% endfor %}
+    <ul>
+        <li>Tipo: {{ object.tipo.tipo }}</li>
+        <li>Duración: {{ object.duracion.duracion}}</li>
+        <li>Tiempo: {{ object.tiempo }} min</li>
+        <li>Preparación:<p> {{ object.descripcion }}</p></li>
+    </ul>
 {% endblock %}
