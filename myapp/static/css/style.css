@@ -156,10 +156,35 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   padding: 0 24px 20px 20px;
   background: transparent url(../images/transparent_light.png) repeat;} 
 
-#content
-{ text-align: left;
-  padding: 0;}
+.sidebar
+{ float: right;
+  width: 210px;
+  padding: 0 15px 20px 15px;}
 
+.sidebar ul
+{ width: 198px; 
+  padding: 4px 0 0 0; 
+  margin: 4px 0 30px 0;}
+
+.sidebar li
+{ list-style: none; 
+  padding: 0 0 7px 0; }
+
+.sidebar li a, .sidebar li a:hover
+{ padding: 0 0 0 40px;
+  display: block;
+  background: transparent url(../images/link.png) no-repeat left center;} 
+
+.sidebar li a.selected
+{ color: #7E2451;
+  text-decoration: none;} 
+
+#content
+  { text-align: left;
+    padding: 0;
+    width: 595px;
+    float: left;
+  }
 #content ul
 { margin: 2px 0 22px 0px;}
 
