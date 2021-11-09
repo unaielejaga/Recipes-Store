@@ -34,3 +34,8 @@ class RecetasListView(ListView):
 class RecetasDetailView(DetailView):
     model = Receta
     template_name = 'detallereceta.html'
+
+class PortadaListView(ListView):
+    model = TipoReceta
+    QuerySet = TipoReceta.objects.all()
+    template_name = 'portada.html'

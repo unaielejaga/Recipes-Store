@@ -1,9 +1,10 @@
 from django.urls import path
 from . import views
-from .views import IngredientesDetailView, IngredientesListView, RecetasDetailView, RecetasListView, TiposListView, TiposDetailView
+from .views import IngredientesDetailView, IngredientesListView, RecetasDetailView, RecetasListView, TiposListView, TiposDetailView, PortadaListView
 
 urlpatterns = [
     # Lista ingredientes
+    path('', PortadaListView.as_view()),
     path('ingredientes/', IngredientesListView.as_view()),
 
     # Detalle de los ingredientes

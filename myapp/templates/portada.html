@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Portada{% endblock %}
+{% block h1 %}Portada{% endblock %}
+{% block content %}
+<ul>
+    {% for tipo in object_list %}
+    <li>{{ tipo.tipo }}</li>
+        <ul>
+        {% for receta in tipo.receta_set.all %}
+            {% if forloop.first %}
+                <li><a href="{%url 'id_re' receta.id%}">{{ receta.nombre }}</a></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    {% endfor %}
+</ul>
+{% endblock %}
