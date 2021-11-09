@@ -7,7 +7,7 @@ html
 
 body
 { font: normal .80em 'trebuchet ms', arial, sans-serif;
-  background: #F0EFE2 url(background.png) repeat;
+  background: #F0EFE2 url(../images/background.png) repeat;
   color: #000;}
 
 p
@@ -121,7 +121,7 @@ ol li
 { width: 898px;
   height: 52px;
   padding: 0;
-  background: transparent url(transparent.png) repeat;} 
+  background: transparent url(../images/transparent.png) repeat;} 
 
 ul#menu, ul#menu li
 { float: left;
@@ -147,42 +147,17 @@ ul#menu li a
 
 ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 { color: #FFF;
-  background: transparent url(transparent.png) repeat;}
+  background: transparent url(../images/transparent.png) repeat;}
 
 #site_content
 { width: 854px;
   overflow: hidden;
   margin: 0 auto 0 auto;
   padding: 0 24px 20px 20px;
-  background: transparent url(transparent_light.png) repeat;} 
-
-.sidebar
-{ float: right;
-  width: 210px;
-  padding: 0 15px 20px 15px;}
-
-.sidebar ul
-{ width: 198px; 
-  padding: 4px 0 0 0; 
-  margin: 4px 0 30px 0;}
-
-.sidebar li
-{ list-style: none; 
-  padding: 0 0 7px 0; }
-
-.sidebar li a, .sidebar li a:hover
-{ padding: 0 0 0 40px;
-  display: block;
-  background: transparent url(link.png) no-repeat left center;} 
-
-.sidebar li a.selected
-{ color: #7E2451;
-  text-decoration: none;} 
+  background: transparent url(../images/transparent_light.png) repeat;} 
 
 #content
 { text-align: left;
-  float: left;
-  width: 595px;
   padding: 0;}
 
 #content ul
@@ -190,7 +165,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 
 #content ul li
 { list-style-type: none;
-  background: url(bullet.png) no-repeat;
+  background: url(../images/bullet.png) no-repeat;
   margin: 0 0 6px 0; 
   padding: 0 0 4px 25px;
   line-height: 1.5em;}
