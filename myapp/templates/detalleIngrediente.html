@@ -1,6 +1,10 @@
 {% extends "index.html" %}
+{% load static %}
 {% block title %}Detalle Ingrediente{% endblock %}
 {% block h1 %}Detalle Ingrediente{% endblock %}
+{% block imagen %}
+    <img src="{% static "" %}images/{{ object.nombre }}.png" alt="{{ object.nombre }}" class="center">
+{% endblock %}
 {% block content %}
     <h2>{{ object.nombre }}</h2>
     <ul>
