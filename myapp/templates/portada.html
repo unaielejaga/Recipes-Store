@@ -1,6 +1,12 @@
 {% extends "index.html" %}
+{% load static %}
 {% block title %}Portada{% endblock %}
 {% block h1 %}Portada{% endblock %}
+
+{% block imagen %}
+    <img src="{% static '/images/abuela.png' %}"alt="abuela" class="center" width="200" heigh="300">
+{% endblock %}
+
 {% block content %}
 <ul>
     {% for tipo in object_list %}
