@@ -14,9 +14,9 @@
         <li><a href="{%url 'id_ing' cantidad.ingrediente.id%}">{{ cantidad.ingrediente.nombre }}</a> : {{ cantidad.cantidad }} {{ cantidad.unidad }}</li>
     {% endfor %}
     <ul>
-        <li>Tipo: {{ object.tipo.tipo }}</li>
-        <li>Duración: {{ object.duracion.duracion}}</li>
-        <li>Tiempo: {{ object.tiempo }} min</li>
-        <li>Preparación:<p> {{ object.descripcion }}</p></li>
+        <li><span>Tipo:</span> {{ object.tipo.tipo }}</li>
+        <li><span>Duración:</span> {{ object.duracion.duracion}}</li>
+        <li><span>Tiempo:</span> {{ object.tiempo }} min</li>
+        <li><span>Preparación:</span><p> {{ object.descripcion }}</p></li>
     </ul>
 {% endblock %}

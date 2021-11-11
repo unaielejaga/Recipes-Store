@@ -97,7 +97,7 @@ header
 
 #logo #logo_text 
 { position: absolute; 
-  top: 20px;
+  top: 40px;
   left: 0;}
 
 #logo h1, #logo h2
@@ -200,7 +200,9 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   padding: 0 0 4px 25px;
   line-height: 1.5em;}
 
-
+span{
+    color:#7E2451;
+}
 
 #footer
 { width: 898px;
