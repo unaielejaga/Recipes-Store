@@ -6,6 +6,7 @@
 
 
 {% block content %}
+<h2>Lista de Recetas</h2>
 <ul>
 {% for receta in object_list %}
     <li><a href="{%url 'id_re' receta.id%}">{{ receta.nombre }}</a></li>

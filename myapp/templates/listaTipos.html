@@ -2,6 +2,7 @@
 {% block title %}Listado de tipos{% endblock %}
 {% block h1 %}Listado de tipos{% endblock %}
 {% block content %}
+<h2>Lista de Tipos de Recetas</h2>
 <ul>
     {% for tipo in object_list %}
     <li><a href="{% url 'id_tip' tipo.id %}">{{tipo.tipo}}</a></li>

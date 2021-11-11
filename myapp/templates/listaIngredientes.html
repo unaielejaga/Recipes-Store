@@ -2,6 +2,7 @@
 {% block title %}Listado de Ingredientes{% endblock %}
 {% block h1 %}Listado de Ingredientes{% endblock %}
 {% block content %}
+<h2>Lista de Ingredientes</h2>
 <ul>
 {% for ingrediente in object_list %}
     <li><a href="{%url 'id_ing' ingrediente.id%}">{{ ingrediente.nombre }}</a></li>
