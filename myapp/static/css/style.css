@@ -7,7 +7,9 @@ html
 
 body
 { font: normal .80em 'trebuchet ms', arial, sans-serif;
-  background: #F0EFE2 url(../images/background.png) repeat;
+  background: #F0EFE2 url(../images/background.png) no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
   color: #000;}
 
 p
