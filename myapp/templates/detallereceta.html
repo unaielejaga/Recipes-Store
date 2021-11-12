@@ -4,14 +4,16 @@
 {% block h1 %}Detalle Receta{% endblock %}
 
 {% block imagen %}
-    <img src="{% static "" %}images/{{ object.nombre }}.png" alt="{{ object.nombre }}" class="center" width="200" heigh="300">
+    <img src="{% static "" %}images/{{ object.nombre }}.png" alt="{{ object.nombre }}" class="center" width="200">
 {% endblock %}
 
 {% block content %}
     <h2>{{ object.nombre }}</h2>
     <h2>Ingredientes</h2>
     {% for cantidad in object.cantidad_set.all %}
+    <ul>
         <li><a href="{%url 'id_ing' cantidad.ingrediente.id%}">{{ cantidad.ingrediente.nombre }}</a> : {{ cantidad.cantidad }} {{ cantidad.unidad }}</li>
+    </ul>
     {% endfor %}
     <ul>
         <li><span>Tipo:</span> {{ object.tipo.tipo }}</li>

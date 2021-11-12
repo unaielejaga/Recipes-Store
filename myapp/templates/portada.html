@@ -4,21 +4,19 @@
 {% block h1 %}Portada{% endblock %}
 
 {% block imagen %}
-    <img src="{% static '/images/abuela.png' %}"alt="abuela" class="center" width="200" heigh="300">
+    <img src="{% static '/images/abuela.png' %}" alt="abuela" class="center" width="200">
 {% endblock %}
 
 {% block content %}
 <h2>Portada</h2>
-<ul>
-    {% for tipo in object_list %}
-    <li>{{ tipo.tipo }}</li>
-        <ul>
-        {% for receta in tipo.receta_set.all %}
-            {% if forloop.first %}
-                <li><a href="{%url 'id_re' receta.id%}">{{ receta.nombre }}</a></li>
-            {% endif %}
-        {% endfor %}
-        </ul>
+{% for tipo in object_list %}
+<p>{{ tipo.tipo }}</p>
+    <ul>
+    {% for receta in tipo.receta_set.all %}
+        {% if forloop.first %}
+            <li><a href="{%url 'id_re' receta.id%}">{{ receta.nombre }}</a></li>
+        {% endif %}
     {% endfor %}
-</ul>
+    </ul>
+{% endfor %}
 {% endblock %}

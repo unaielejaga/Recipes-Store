@@ -3,7 +3,7 @@
 {% block title %}Detalle Ingrediente{% endblock %}
 {% block h1 %}Detalle Ingrediente{% endblock %}
 {% block imagen %}
-    <img src="{% static "" %}images/{{ object.nombre }}.png" alt="{{ object.nombre }}" class="center" width="200" heigh="300">
+    <img src="{% static "" %}images/{{ object.nombre }}.png" alt="{{ object.nombre }}" class="center" width="200">
 {% endblock %}
 {% block content %}
     <h2>{{ object.nombre }}</h2>
@@ -12,7 +12,9 @@
     </ul>
     <h2>Recetas asociadas</h2>
     {% for receta in object.cantidad_set.all %}
+    <ul>
         <li><a href="{%url 'id_re' receta.receta.id%}">{{ receta.receta.nombre }}</a></li>
+    </ul>
     {% endfor %}
 {% endblock %}
 
