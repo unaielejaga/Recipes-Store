@@ -15,7 +15,9 @@ body
 
 p
 { padding: 0 0 20px 0;
-  line-height: 1.7em;}
+  line-height: 1.7em;
+  width: 700px;
+}
 
 img
 { border: 0;}
