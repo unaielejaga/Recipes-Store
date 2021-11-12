@@ -10,7 +10,8 @@ from django.db.models.query import QuerySet
 
 class IngredientesListView(ListView):
     model = Ingrediente
-    querySet = Ingrediente.objects.all().order_by('nombre')
+    querySet = Ingrediente.objects.all()
+    ordering = ('nombre',)
     template_name = 'listaIngredientes.html'
 
 class IngredientesDetailView(DetailView):
@@ -28,7 +29,8 @@ class TiposDetailView(DetailView):
 
 class RecetasListView(ListView):
     model = Receta
-    querySet = Receta.objects.order_by('nombre')
+    querySet = Receta.objects.all()
+    ordering = ('nombre',)
     template_name = 'listarecetas.html'
 
 class RecetasDetailView(DetailView):
