@@ -1,10 +1,12 @@
 {% extends "index.html" %}
-{% block title %}Detalle Tipos{% endblock %}
+{% block title %}Tipos{% endblock %}
 {% block h1 %}Detalle Tipos{% endblock %}
 {% block content %}
     <h2>{{ object.tipo }}</h2>
     <h2>Recetas asociadas</h2>
-    {% for receta in object.receta_set.all %}
-        <li><a href="{%url 'id_re' receta.id%}">{{ receta.nombre }}</a></li>
-    {% endfor %}
+    <ul>
+        {% for receta in object.receta_set.all %}
+            <li><a href="{%url 'id_re' receta.id%}">{{ receta.nombre }}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock %}

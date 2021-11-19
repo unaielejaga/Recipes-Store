@@ -1,9 +1,9 @@
 {% extends "index.html" %}
 {% load static %}
-{% block title %}Detalle Ingrediente{% endblock %}
+{% block title %}Ingrediente{% endblock %}
 {% block h1 %}Detalle Ingrediente{% endblock %}
 {% block imagen %}
-    <img src="{% static "" %}images/{{ object.nombre }}.png" alt="{{ object.nombre }}" class="center" width="200">
+    <img src="{% static "" %}images/{{ object.nombre|cut:" " }}.png" alt="{{ object.nombre }}" class="center" width="200">
 {% endblock %}
 {% block content %}
     <h2>{{ object.nombre }}</h2>

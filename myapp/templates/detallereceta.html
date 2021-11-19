@@ -1,10 +1,10 @@
 {% extends "index.html" %}
 {% load static %}s
-{% block title %}Detalle Receta{% endblock %}
+{% block title %}Receta{% endblock %}
 {% block h1 %}Detalle Receta{% endblock %}
 
 {% block imagen %}
-    <img src="{% static "" %}images/{{ object.nombre }}.png" alt="{{ object.nombre }}" class="center" width="200">
+    <img src="{% static "" %}images/{{ object.nombre|cut:" " }}.png" alt="{{ object.nombre }}" class="center" width="200">
     
 {% endblock %}
 
