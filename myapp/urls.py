@@ -12,4 +12,6 @@ urlpatterns = [
     path('tipos/<int:pk>', TiposDetailView.as_view(), name = 'id_tip'),
     path('recetas/', RecetasListView.as_view()),
     path('recetas/<int:pk>', RecetasDetailView.as_view(), name = 'id_re'),
+
+    path('login/', views.LoginForm, name= "registro")
 ]

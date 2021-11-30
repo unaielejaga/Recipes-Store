@@ -41,3 +41,10 @@ class PortadaListView(ListView):
     model = TipoReceta
     QuerySet = TipoReceta.objects.all()
     template_name = 'portada.html'
+
+def LoginForm(request):
+    form = MyForm()
+    return render(
+        request, 'templates/login.html', {'form':form}
+    )
+
