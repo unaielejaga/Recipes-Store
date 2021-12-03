@@ -13,5 +13,5 @@ urlpatterns = [
     path('recetas/', RecetasListView.as_view()),
     path('recetas/<int:pk>', RecetasDetailView.as_view(), name = 'id_re'),
 
-    path('login/', views.LoginForm, name= "registro")
+    path('login/', views.LoginForm.as_view(), name= "registro")
 ]

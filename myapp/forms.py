@@ -1,8 +1,11 @@
 from django import forms
-from django.forms.widgets import PasswordInput
+from django.forms import ModelForm
+from .models import Usuario 
+ 
 
+class MyForm(ModelForm):
+    
+    class Meta:
+        model = Usuario
+        fields = ['nombre', 'email', 'password']
 
-class MyForm(forms.Form):
-    nombre = forms.CharField(label = 'Introduce tu nombre', max_length = 100)
-    email = forms.EmailField(label = 'Introduce tu email', max_length = 100)
-    password = forms.CharField(label = 'Introduce contraseña', widget=PasswordInput(), max_length=100)

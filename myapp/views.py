@@ -1,10 +1,11 @@
 from django.shortcuts import get_list_or_404, get_object_or_404, render
-from .models import Receta, Ingrediente, Cantidad, TipoReceta
+from .models import Receta, Ingrediente, Cantidad, TipoReceta, Usuario
 from django.http import HttpResponse
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.db.models.query import QuerySet
 from .forms import MyForm
+from django.views.generic.edit import CreateView
 # Create your views here.
 
 # Vista para ver todos los ingredientes
@@ -43,9 +44,9 @@ class PortadaListView(ListView):
     QuerySet = TipoReceta.objects.all()
     template_name = 'portada.html'
 
-def LoginForm(request):
-    form = MyForm()
-    return render(
-        request, 'login.html', {'form':form}
-    )
+class LoginForm(CreateView):
+    model=Usuario
+    fields='__all__'
+    template_name = 'login.html'
+
 
