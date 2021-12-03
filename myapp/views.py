@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.db.models.query import QuerySet
+from .forms import MyForm
 # Create your views here.
 
 # Vista para ver todos los ingredientes
@@ -45,6 +46,6 @@ class PortadaListView(ListView):
 def LoginForm(request):
     form = MyForm()
     return render(
-        request, 'templates/login.html', {'form':form}
+        request, 'login.html', {'form':form}
     )
 
