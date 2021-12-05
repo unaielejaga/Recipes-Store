@@ -62,6 +62,8 @@ class RegistroForm(CreateView):
     template_name = 'registro.html'
     success_url = reverse_lazy('id_port')
 
+# Prueba de comentario
+
 def login_page(request):
     mensaje = None
     if request.method == "POST":
