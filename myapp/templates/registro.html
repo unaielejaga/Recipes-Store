@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}Registro{% endblock %}
+{% block h1 %}Registro{% endblock %}
+
+{% block content %}
+<h2>Registro</h2>
+<form action="" method="post">
+    {%csrf_token%}
+    {{ form | linebreaks }}
+</br>
+<input type="submit" value="Registrar" id="button"/>
+</form>
+{% endblock %}

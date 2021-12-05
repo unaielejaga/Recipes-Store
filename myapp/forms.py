@@ -7,5 +7,5 @@ class MyForm(ModelForm):
     
     class Meta:
         model = Usuario
-        fields = ['nombre', 'email', 'password']
+        fields = ['email', 'password']
 

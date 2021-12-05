@@ -7,6 +7,11 @@ from django.db.models.query import QuerySet
 from .forms import MyForm
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
+
+from django.template import RequestContext
+from django.shortcuts import render
+from django.contrib.auth import authenticate, login
+
 # Create your views here.
 
 # Vista para ver todos los ingredientes
@@ -47,9 +52,35 @@ class PortadaListView(ListView):
 
 class LoginForm(CreateView):
     model=Usuario
-    fields='__all__'
+    fields=['email', 'password']
     template_name = 'login.html'
     success_url = reverse_lazy('id_port')
-    
+
+class RegistroForm(CreateView):
+    model=Usuario
+    fields=['nombre','email', 'password']
+    template_name = 'registro.html'
+    success_url = reverse_lazy('id_port')
+
+def login_page(request):
+    mensaje = None
+    if request.method == "POST":
+        form = MyForm(request.POST)
+        if form.is_valid():
+            email = request.POST['email']
+            password = request.POST['password']
+            usuario = authenticate(email = email, password = password)
+            if usuario is not None:
+                if usuario.is_active:
+                    login(request, usuario)
+                    mensaje = "login correcto"
+                else:
+                    mensaje = "usuario inactivo"
+            else:
+                mensaje = "login incorrecto"
+        else:
+            form = MyForm()
+        return render_to_response('login.html', {'mensaje': mensaje, 'form': form},
+                                    context_instance= RequestContext(request))  
 
 
