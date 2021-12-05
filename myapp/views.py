@@ -6,6 +6,7 @@ from django.views.generic.list import ListView
 from django.db.models.query import QuerySet
 from .forms import MyForm
 from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 # Create your views here.
 
 # Vista para ver todos los ingredientes
@@ -48,5 +49,7 @@ class LoginForm(CreateView):
     model=Usuario
     fields='__all__'
     template_name = 'login.html'
+    success_url = reverse_lazy('id_port')
+    
 
 

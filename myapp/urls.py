@@ -4,7 +4,7 @@ from .views import IngredientesDetailView, IngredientesListView, RecetasDetailVi
 
 urlpatterns = [
     # Lista ingredientes
-    path('', PortadaListView.as_view()),
+    path('', PortadaListView.as_view(), name = 'id_port'),
     path('ingredientes/', IngredientesListView.as_view()),
     # Detalle de los ingredientes
     path('ingredientes/<int:pk>', IngredientesDetailView.as_view(), name='id_ing'),
