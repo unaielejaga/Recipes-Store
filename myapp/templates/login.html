@@ -1,4 +1,5 @@
 {% extends "index.html" %}
+{%load crispy_forms_tags%}
 {% load static %}
 {% block title %}InicioSesión{% endblock %}
 {% block h1 %}Inicia sesión{% endblock %}
@@ -7,7 +8,7 @@
 <h2>Inicio de sesión</h2>
 <form action="" method="post">
     {%csrf_token%}
-    {{ form | linebreaks }}
+    {{ login_form | crispy }}
 </br>
 <input type="submit" value="Iniciar sesión" id="button2"/>
 </form>

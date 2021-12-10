@@ -1,16 +1,17 @@
-from django.shortcuts import get_list_or_404, get_object_or_404, render
+from django.shortcuts import get_list_or_404, get_object_or_404
 from .models import Receta, Ingrediente, Cantidad, TipoReceta, Usuario
 from django.http import HttpResponse
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.db.models.query import QuerySet
-from .forms import MyForm
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
-
+from .forms import newUserForm
 from django.template import RequestContext
-from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -50,17 +51,47 @@ class PortadaListView(ListView):
     QuerySet = TipoReceta.objects.all()
     template_name = 'portada.html'
 
-class LoginForm(CreateView):
-    model=Usuario
-    fields=['email', 'password']
-    template_name = 'login.html'
-    success_url = reverse_lazy('id_port')
+def register_request(request):
+    if request.method == "POST":
+        form = newUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "registro correcto")
+            return redirect("/myapp/login/")
+        messages.error(request, "registro erroneo")
+    form = newUserForm()
+    return render(request=request, template_name = "registro.html", context ={"register_form": form})
 
-class RegistroForm(CreateView):
-    model=Usuario
-    fields=['nombre','email', 'password']
-    template_name = 'registro.html'
-    success_url = reverse_lazy('id_port')
+def login_request(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data= request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('usename')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username = username, password = password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"Estas logeado como {username}")
+                return redirect("/myapp/")
+            else:
+               messages.error(request, "usuario o contraseña incorrecta")  
+        else:
+            messages.error(request, "usuario o contraseña incorrecta")
+    form = AuthenticationForm()
+    return render(request=request, template_name = "login.html", context ={"login_form": form})
+
+#class LoginForm(CreateView):
+#    model=Usuario
+ #   fields=['email', 'password']
+  #  template_name = 'login.html'
+   # success_url = reverse_lazy('id_port')
+
+#class RegistroForm(CreateView):
+ #   model=Usuario
+  #  fields=['nombre','email', 'password']
+   # template_name = 'registro.html'
+    #success_url = reverse_lazy('id_port')
 
 # Prueba de comentario
 
