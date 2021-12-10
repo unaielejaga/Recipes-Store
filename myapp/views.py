@@ -64,25 +64,4 @@ class RegistroForm(CreateView):
 
 # Prueba de comentario
 
-def login_page(request):
-    mensaje = None
-    if request.method == "POST":
-        form = MyForm(request.POST)
-        if form.is_valid():
-            email = request.POST['email']
-            password = request.POST['password']
-            usuario = authenticate(email = email, password = password)
-            if usuario is not None:
-                if usuario.is_active:
-                    login(request, usuario)
-                    mensaje = "login correcto"
-                else:
-                    mensaje = "usuario inactivo"
-            else:
-                mensaje = "login incorrecto"
-        else:
-            form = MyForm()
-        return render_to_response('login.html', {'mensaje': mensaje, 'form': form},
-                                    context_instance= RequestContext(request))  
-
 

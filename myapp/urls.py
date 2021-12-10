@@ -12,7 +12,7 @@ urlpatterns = [
     path('tipos/<int:pk>', TiposDetailView.as_view(), name = 'id_tip'),
     path('recetas/', RecetasListView.as_view()),
     path('recetas/<int:pk>', RecetasDetailView.as_view(), name = 'id_re'),
-    #path('login/', views.LoginForm.as_view(), name= "login"),
+    path('login/', views.LoginForm.as_view(), name= "login"),
     path('registro/', views.RegistroForm.as_view(), name= "registro"),
-    path('login/', views.login_page, name="login")
+    
 ]
