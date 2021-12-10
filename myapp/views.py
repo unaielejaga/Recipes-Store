@@ -67,7 +67,7 @@ def login_request(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data= request.POST)
         if form.is_valid():
-            username = form.cleaned_data.get('usename')
+            username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username = username, password = password)
             if user is not None:
@@ -75,9 +75,9 @@ def login_request(request):
                 messages.info(request, f"Estas logeado como {username}")
                 return redirect("/myapp/")
             else:
-               messages.error(request, "usuario o contraseña incorrecta")  
+               messages.error(request, "usuario o contraseña incorrecta 1")  
         else:
-            messages.error(request, "usuario o contraseña incorrecta")
+            messages.error(request, "usuario o contraseña incorrecta 2")
     form = AuthenticationForm()
     return render(request=request, template_name = "login.html", context ={"login_form": form})
 

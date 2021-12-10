@@ -6,12 +6,14 @@
 
 {% block content %}
 <h2>Inicio de sesión</h2>
-<form action="" method="post">
-    {%csrf_token%}
+<form method="POST">
+    {% csrf_token %}
     {{ login_form | crispy }}
 </br>
 <input type="submit" value="Iniciar sesión" id="button2"/>
 </form>
+</br>
+<p>Aun no tienes cuenta? Registrate Gratis</p>
 <form action="/myapp/registro/"><input type="submit" value="Registrar" id="button"/></form>
 
 {% endblock %}
