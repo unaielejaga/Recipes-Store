@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from .forms import newUserForm, MyForm
 from django.template import RequestContext
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 
@@ -81,6 +81,10 @@ def login_request(request):
             messages.error(request, "usuario o contraseña incorrecta 2")
     form = AuthenticationForm()
     return render(request=request, template_name = "login.html", context ={"login_form": form})
+
+def logout_request(request):
+    logout(request)
+    return redirect("/myapp/")
 
 class RecetaForm(CreateView):
     model= Receta

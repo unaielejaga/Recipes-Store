@@ -15,4 +15,5 @@ urlpatterns = [
     path('login/', views.login_request, name= "login"),
     path('registro/', views.register_request, name= "registro"),
     path('añadirReceta/', views.RecetaForm.as_view(), name="añadirReceta"),
+    path('logout/', views.logout_request, name= "logout"),
 ]
