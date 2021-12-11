@@ -18,6 +18,7 @@ class RecetaAdmin(admin.ModelAdmin):
 
 class IngredienteAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'calorias')
+    
 
 
 
