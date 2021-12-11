@@ -12,7 +12,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-
 # Create your views here.
 
 # Vista para ver todos los ingredientes
@@ -58,9 +57,9 @@ def register_request(request):
             user = form.save()
             user.groups.add(request.POST.get("groups"))
             login(request, user)
-            messages.success(request, "registro correcto")
+            messages.success(request, "Registro correcto")
             return redirect("/myapp/")
-        messages.error(request, "registro erroneo")
+        messages.error(request, "Algunos campos del registro son erróneos")
     form = newUserForm()
     return render(request=request, template_name = "registro.html", context ={"register_form": form})
 
@@ -76,15 +75,16 @@ def login_request(request):
                 messages.info(request, f"Estas logeado como {username}")
                 return redirect("/myapp/")
             else:
-               messages.error(request, "usuario o contraseña incorrecta 1")  
+               messages.error(request, "Usuario o contraseña incorrecta")  
         else:
-            messages.error(request, "usuario o contraseña incorrecta 2")
+            messages.error(request, "Usuario o contraseña incorrecta")
     form = AuthenticationForm()
     return render(request=request, template_name = "login.html", context ={"login_form": form})
 
 def logout_request(request):
     logout(request)
     return redirect("/myapp/")
+
 
 class RecetaForm(CreateView):
     model= Receta

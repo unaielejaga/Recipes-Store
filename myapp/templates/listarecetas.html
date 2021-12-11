@@ -1,5 +1,6 @@
 {% extends "index.html" %}
 {% load static %}
+{% load auth_extras %}
 
 {% block title %}Listado_Recetas{% endblock %}
 {% block h1 %}Listado de Recetas{% endblock %}
@@ -15,8 +16,12 @@
 {% endblock %}
 {% block boton %}
 {% if request.user.is_authenticated %}
-    <a href="/myapp/añadirReceta/"><input type="button" value="Añadir receta" class="botonAñadirReceta"></a>
+    {% if request.user|has_group:"Cocinero" %}
+        <a href="/myapp/añadirReceta/"><input type="button" value="Añadir receta" class="botonAñadirReceta"></a>
     {% else %}
+        <input type="button" value="Añadir receta" class="botonAñadirReceta" disabled>
+    {% endif %}
+{% else %}
     <input type="button" value="Añadir receta" class="botonAñadirReceta" disabled>
 {% endif %}
 {% endblock %}

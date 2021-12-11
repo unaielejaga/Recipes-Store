@@ -13,6 +13,15 @@
 <input type="submit" value="Iniciar sesión" id="button2"/>
 </form>
 </br>
+{% for message in messages %}
+<div class="alert {{ message.tags }} alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+</div>
+{% endfor %}
+</br>
 <p>Aun no tienes cuenta? Registrate Gratis</p>
 <form action="/myapp/registro/"><input type="submit" value="Registrar" id="button"/></form>
 
