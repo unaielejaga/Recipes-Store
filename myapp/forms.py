@@ -9,11 +9,12 @@ class newUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
     class Meta:
         model = User
-        fields = ("username", "email", "password1", "password2")
+        fields = ("username", "email", "password1", "password2", "groups")
     
     def save(self, commit = True):
         user = super(newUserForm, self).save(commit = False)
         user.email = self.cleaned_data['email']
+        user.group = self.cleaned_data['groups']
         if commit: 
             user.save()
         return user

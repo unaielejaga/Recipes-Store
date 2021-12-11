@@ -56,9 +56,10 @@ def register_request(request):
         form = newUserForm(request.POST)
         if form.is_valid():
             user = form.save()
+            user.groups.add(request.POST.get("groups"))
             login(request, user)
             messages.success(request, "registro correcto")
-            return redirect("/myapp/login/")
+            return redirect("/myapp/")
         messages.error(request, "registro erroneo")
     form = newUserForm()
     return render(request=request, template_name = "registro.html", context ={"register_form": form})
