@@ -97,6 +97,15 @@ header
   height: 148px;
   border-bottom: 2px solid #822956;}
 
+#logo .usuario{
+    width: fit-content;
+    float:right;
+    margin-top:80px;
+}
+#logo .usuario h3{
+    color: white;
+}
+
 #logo #logo_text 
 { position: absolute; 
   top: 40px;
