@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{%load crispy_forms_tags%}
+{% load static %}
+{% block title %}Añadir receta{% endblock %}
+{% block h1 %}Añadir receta{% endblock %}
+
+{% block content %}
+<h2>Añadir nueva receta</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form | crispy }}
+</br>
+<input type="submit" value="Añadir receta" id="btmAñadir"/>
+</form>
+</br>
+
+{% endblock %}

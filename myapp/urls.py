@@ -14,5 +14,5 @@ urlpatterns = [
     path('recetas/<int:pk>', RecetasDetailView.as_view(), name = 'id_re'),
     path('login/', views.login_request, name= "login"),
     path('registro/', views.register_request, name= "registro"),
-    
+    path('añadirReceta/', views.RecetaForm.as_view(), name="añadirReceta"),
 ]

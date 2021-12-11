@@ -6,7 +6,7 @@ from django.views.generic.list import ListView
 from django.db.models.query import QuerySet
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
-from .forms import newUserForm
+from .forms import newUserForm, MyForm
 from django.template import RequestContext
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
@@ -81,6 +81,12 @@ def login_request(request):
     form = AuthenticationForm()
     return render(request=request, template_name = "login.html", context ={"login_form": form})
 
+class RecetaForm(CreateView):
+    model= Receta
+    fields=['nombre', 'descripcion', 'tiempo', 'tipo', 'duracion']
+    template_name = 'añadirReceta.html'
+    success_url = reverse_lazy('id_port')
+    
 #class LoginForm(CreateView):
 #    model=Usuario
  #   fields=['email', 'password']
