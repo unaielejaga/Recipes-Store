@@ -25,3 +25,8 @@
         <li><span>Preparación:</span><p> {{ object.descripcion }}</p></li>
     </ul>
 {% endblock %}
+{% block app-4 %}
+    <h2> {$ counter $} me gusta</h2>
+    <button v-on:click="counter++">Me gusta</button>
+    <button v-on:click="counter--">No me gusta</button>
+{% endblock %}

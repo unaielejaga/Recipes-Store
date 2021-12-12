@@ -6,8 +6,10 @@
     <meta name="description" content="website description"/>
     <meta name="keywords" content="website keywords, website keywords"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta mame ="viewport" content"width-device-width">
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link rel="icon" href="{%static 'images/logo.png'%}" type="image/png"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
 
   <body>
@@ -49,7 +51,19 @@
         </div>
         <div id="content">
           {% block content %}{% endblock %}
+          <div id="app-4">
+              {% block app-4 %}{% endblock %}
+          </div>
         </div>
       </div>
+      <script type="text/javascript">
+          var app4 = new Vue({
+              el: '#app-4',
+              delimiters:['{$','$}'],
+              data:{
+                  counter: '0'
+              }
+          });
+      </script>
   </body>
 </html>
