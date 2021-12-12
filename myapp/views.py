@@ -6,7 +6,8 @@ from django.views.generic.list import ListView
 from django.db.models.query import QuerySet
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
-from .forms import newUserForm, MyForm
+from .forms import newUserForm, CantidadRecetaIngredienteModelForm
+"""MyForm,"""
 from django.template import RequestContext
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
@@ -86,11 +87,28 @@ def logout_request(request):
     return redirect("/myapp/")
 
 
-class RecetaForm(CreateView):
+"""class RecetaForm(CreateView):
     model= Receta
     fields=['nombre', 'descripcion', 'tiempo', 'tipo', 'duracion']
     template_name = 'añadirReceta.html'
     success_url = reverse_lazy('id_port')
+ """
+  
+#Pruebas-----------
+
+class CantidadCreateView(CreateView):
+    form_class = CantidadRecetaIngredienteModelForm
+    template_name = 'añadirReceta.html'
+    
+    def form_valid(self, form):
+        receta = form['receta'].save()
+        ingrediente = form['ingrediente'].save()
+        cantidad = form['cantidad'].save(commit=False)
+        cantidad.receta = receta
+        cantidad.ingrediente = ingrediente
+        cantidad.save()
+        success_url = reverse_lazy('id_port')
+
     
 #class LoginForm(CreateView):
 #    model=Usuario
