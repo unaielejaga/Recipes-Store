@@ -51,17 +51,27 @@
         </div>
         <div id="content">
           {% block content %}{% endblock %}
-          <div id="app-4">
-              {% block app-4 %}{% endblock %}
+          <div id="app">
+              {% block app %}{% endblock %}
           </div>
         </div>
       </div>
       <script type="text/javascript">
-          var app4 = new Vue({
-              el: '#app-4',
+          var app = new Vue({
+              el: '#app',
               delimiters:['{$','$}'],
               data:{
                   counter: '0'
+              },
+              mounted(){
+                  if (localStorage.counter){
+                      this.counter = localStorage.counter;
+                  }
+              },
+              watch: {
+                  counter(newCounter){
+                      localStorage.counter = newCounter;
+                  }
               }
           });
       </script>
