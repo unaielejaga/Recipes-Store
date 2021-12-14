@@ -108,6 +108,7 @@ class CantidadCreateView(CreateView):
         cantidad.ingrediente = ingrediente
         cantidad.save()
         success_url = reverse_lazy('id_port')
+        return redirect("/myapp/")
 
     
 #class LoginForm(CreateView):
