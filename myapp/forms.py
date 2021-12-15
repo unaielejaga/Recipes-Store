@@ -23,34 +23,25 @@ class newUserForm(UserCreationForm):
             user.save()
         return user
 
-#class MyForm(ModelForm):
-
-#    class Meta:
-#        model = Receta
-#        fields=['nombre', 'descripcion', 'tiempo', 'tipo', 'duracion']
-     
-#Probando cosas----------------
 
 class RecetaModelForm(ModelForm):
     class Meta:
         model = Receta
         fields = '__all__'
         
-class IngredienteModelForm(ModelForm):
+"""class IngredienteModelForm(ModelForm):
     class Meta:
         model = Ingrediente
-        fields = '__all__'
+        fields = '__all__'"""
         
 class CantidadModelForm(ModelForm):
     class Meta:
         model = Cantidad
-        fields = ['cantidad', 'unidad']
+        fields = ['ingrediente', 'cantidad', 'unidad']
         
-    
 class CantidadRecetaIngredienteModelForm(MultiModelForm):
     form_classes = {
         'receta': RecetaModelForm,
-        'ingrediente': IngredienteModelForm,
         'cantidad': CantidadModelForm,
     }
 

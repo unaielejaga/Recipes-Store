@@ -10,12 +10,10 @@
     {% csrf_token %}
     {{ form | crispy }}
 </br>
-    <input type="button" value="Añadir receta">
-    {% csrf_token %}
-    {{ form.ingrediente | crispy }}
-    {% csrf_token %}
-    {{ form.cantidad | crispy }}
+<!--    {{ form.ingrediente | crispy }} -->
     <input type="submit" value="Añadir receta" id="btmAñadir"/>
 </form>
-</br>
 {% endblock %}
+
+
+

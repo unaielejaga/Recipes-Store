@@ -7,7 +7,6 @@ from django.db.models.query import QuerySet
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from .forms import newUserForm, CantidadRecetaIngredienteModelForm
-"""MyForm,"""
 from django.template import RequestContext
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
@@ -85,16 +84,7 @@ def login_request(request):
 def logout_request(request):
     logout(request)
     return redirect("/myapp/")
-
-
-"""class RecetaForm(CreateView):
-    model= Receta
-    fields=['nombre', 'descripcion', 'tiempo', 'tipo', 'duracion']
-    template_name = 'añadirReceta.html'
-    success_url = reverse_lazy('id_port')
- """
   
-#Pruebas-----------
 
 class CantidadCreateView(CreateView):
     form_class = CantidadRecetaIngredienteModelForm
@@ -102,27 +92,12 @@ class CantidadCreateView(CreateView):
     
     def form_valid(self, form):
         receta = form['receta'].save()
-        ingrediente = form['ingrediente'].save()
         cantidad = form['cantidad'].save(commit=False)
         cantidad.receta = receta
-        cantidad.ingrediente = ingrediente
         cantidad.save()
         success_url = reverse_lazy('id_port')
         return redirect("/myapp/")
 
-    
-#class LoginForm(CreateView):
-#    model=Usuario
- #   fields=['email', 'password']
-  #  template_name = 'login.html'
-   # success_url = reverse_lazy('id_port')
 
-#class RegistroForm(CreateView):
- #   model=Usuario
-  #  fields=['nombre','email', 'password']
-   # template_name = 'registro.html'
-    #success_url = reverse_lazy('id_port')
-
-# Prueba de comentario
 
 
